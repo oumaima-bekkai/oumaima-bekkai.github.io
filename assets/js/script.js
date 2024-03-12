@@ -10,6 +10,15 @@ const sidebarBtn = document.querySelector("[data-sidebar-btn]");
 // sidebar toggle functionality for mobile
 sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
 
+//Linkedin
+document.addEventListener('DOMContentLoaded', function() {
+  var linkedInIcon = document.querySelector('.linkedin-icon');
+
+  linkedInIcon.addEventListener('click', function(e) {
+    e.preventDefault(); // Prevent the default anchor link behavior
+    window.location.href = 'https://www.linkedin.com/in/oumaima-bekkai-2b30451a4/'; // Replace this with your LinkedIn profile URL
+  });
+});
 
 
 // testimonials variables
