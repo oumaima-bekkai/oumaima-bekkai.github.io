@@ -12,13 +12,16 @@ sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); }
 
 //Linkedin
 document.addEventListener('DOMContentLoaded', function() {
-  var linkedInIcon = document.querySelector('.linkedin-icon');
+  // Select the LinkedIn anchor tag within the social list
+  var linkedInIcon = document.querySelector('.social-list li a[href*="linkedin.com"]');
 
+  // Add a click event listener to the LinkedIn icon
   linkedInIcon.addEventListener('click', function(e) {
     e.preventDefault(); // Prevent the default anchor link behavior
-    window.location.href = 'https://www.linkedin.com/in/oumaima-bekkai-2b30451a4'; // Replace this with your LinkedIn profile URL
+    window.open(this.getAttribute('href'), '_blank'); // Open the LinkedIn link in a new tab
   });
 });
+
 
 
 // testimonials variables
