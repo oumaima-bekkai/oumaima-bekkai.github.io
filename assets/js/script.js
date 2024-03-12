@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   linkedInIcon.addEventListener('click', function(e) {
     e.preventDefault(); // Prevent the default anchor link behavior
-    window.location.href = 'https://www.linkedin.com/in/oumaima-bekkai-2b30451a4/'; // Replace this with your LinkedIn profile URL
+    window.location.href = 'https://www.linkedin.com/in/oumaima-bekkai-2b30451a4'; // Replace this with your LinkedIn profile URL
   });
 });
 
