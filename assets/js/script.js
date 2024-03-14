@@ -141,6 +141,49 @@ for (let i = 0; i < formInputs.length; i++) {
 
   });
 }
+// Handle form submission
+form.addEventListener('submit', function(e) {
+  e.preventDefault(); // Prevent the default form submission
+
+  formBtn.disabled = true; // Optionally disable the button to prevent multiple submissions
+  formBtn.textContent = 'Sending...'; // Provide user feedback
+
+  const formData = new FormData(this); // Use FormData to capture all form data
+
+  // Use fetch API to submit the form data to Formspree
+  fetch(form.action, {
+    method: 'POST',
+    body: formData,
+    headers: {
+      'Accept': 'application/json' // Ensure you set the Accept header to expect a JSON response
+    }
+  })
+  .then(response => {
+    if (response.ok) {
+      // Handle successful submission here
+      alert('Thank you for your message! We will get back to you soon.');
+      form.reset(); // Reset the form after successful submission
+      formBtn.textContent = 'Send Message'; // Reset button text
+    } else {
+      // Handle submission errors here
+      response.json().then(data => {
+        if (data.errors) {
+          alert(data.errors.map(error => error.message).join(", "));
+        } else {
+          alert('Oops! There was a problem with your submission.');
+        }
+      });
+    }
+  })
+  .catch(error => {
+    // Handle network errors here
+    alert('Oops! There was a problem submitting your form.');
+  })
+  .finally(() => {
+    // Re-enable the form button after processing (optional)
+    formBtn.disabled = false;
+  });
+});
 
 
 
