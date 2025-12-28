@@ -1949,3 +1949,8 @@ textarea.form-input::-webkit-resizer { display: none; }
 .clients .clients-item .flip-card:hover {
   transform: translateY(-2px);
 }
+
+/* Test Hard override: force flipped text white */
+.clients .clients-item .flip-card-back .flip-card-text {
+  color: #ffffff !important;
+}
