@@ -1912,7 +1912,7 @@ textarea.form-input::-webkit-resizer { display: none; }
   justify-content: center;
 
   /* FORCE WHITE CARD by using !important  */
-  color: #1a1a1a !important;
+  color: #ffffff !important;
 
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -1935,7 +1935,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 .clients .clients-item .flip-card-back p,
 .clients .clients-item .flip-card-back span,
 .clients .clients-item .flip-card-back div {
-  color: #1a1a1a !important;
+  color: #ffffff !important;
 }
 
 .clients .clients-item .flip-card-text {
