@@ -459,13 +459,15 @@ main {
   z-index: 9999;
 }
 
-/* Show tooltip */
-.contact-info .contact-link:hover::after,
-.contact-info .contact-link:focus::after,
-.contact-info .contact-link:active::after {
+/* Show tooltip when hovering the whole contact row */
+.contact-item:hover .contact-link::after,
+.contact-item:focus-within .contact-link::after,
+.contact-item:active .contact-link::after {
   opacity: 1;
   transform: translateY(0);
 }
+
+.contact-item:hover { outline: 2px solid lime; }
 
 
 /* Address*/
