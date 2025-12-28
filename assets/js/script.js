@@ -208,3 +208,18 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+// Flip cards (They trusted me section)
+document.querySelectorAll("[data-flip-card]").forEach(card => {
+  card.addEventListener("click", () => {
+    card.classList.toggle("is-flipped");
+  });
+
+  // Keyboard accessibility
+  card.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      card.classList.toggle("is-flipped");
+    }
+  });
+});
