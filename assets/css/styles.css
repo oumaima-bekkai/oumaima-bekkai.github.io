@@ -1910,7 +1910,7 @@ textarea.form-input::-webkit-resizer { display: none; }
   backface-visibility: hidden;
 }
 
-/* EXACTLY match your template logo sizing */
+/* EXACTLY match template logo sizing */
 .clients .clients-item .flip-card-front img {
   width: 100%;
   height: auto;
@@ -1939,3 +1939,14 @@ textarea.form-input::-webkit-resizer { display: none; }
   line-height: 1.4;
   font-weight: 500;
 }
+
+/* Sidebar title: allow wrapping */
+.sidebar .info-content .title {
+  white-space: normal !important;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  max-width: 100%;
+}
+
+
+
