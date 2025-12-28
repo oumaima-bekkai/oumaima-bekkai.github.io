@@ -352,6 +352,10 @@ main {
   border-radius: 8px;
   text-align: center;	
 }
+/* Allow title text to wrap inside flex layout */
+.info-content {
+  min-width: 0;
+}
 
 .info_more-btn {
   position: absolute;
