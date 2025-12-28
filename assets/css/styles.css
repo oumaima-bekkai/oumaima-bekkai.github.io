@@ -1953,6 +1953,50 @@ textarea.form-input::-webkit-resizer { display: none; }
    About: additional
    ========================================================= */
 
+/* =========================================================
+   Email: single line + full text on hover (copyable)
+   ========================================================= */
+
+.contact-link {
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;          /* keep on one line */
+  overflow: hidden;
+  text-overflow: ellipsis;      /* show ... */
+  position: relative;
+}
+
+/* Tooltip with full email */
+.contact-link::after {
+  content: attr(href);          /* uses mailto:... */
+  position: absolute;
+  left: 50%;
+  bottom: 130%;
+  transform: translateX(-50%);
+
+  background: #1e1e1e;
+  color: #ffffff;
+  padding: 6px 10px;
+  border-radius: 6px;
+
+  font-size: 0.8rem;
+  white-space: nowrap;
+  pointer-events: none;
+
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+}
+
+/* Remove "mailto:" from tooltip */
+.contact-link::after {
+  content: attr(data-email);
+}
+
+/* Show tooltip on hover */
+.contact-link:hover::after {
+  opacity: 1;
+}
 
 
 
