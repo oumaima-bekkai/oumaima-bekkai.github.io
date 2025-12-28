@@ -430,18 +430,18 @@ main {
   font-size: var(--fs-7);
 }
 /* Email link: single-line + ellipsis */
-.contact-info .contact-link {
+.contact-link {
   display: inline-block;
   max-width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 
-  position: relative; /* needed for tooltip */
+  position: relative;
 }
 
-/* Hover tooltip: shows full email */
-.contact-info .contact-link::after {
+/* Tooltip */
+.contact-link::after {
   content: attr(data-email);
   position: absolute;
   left: 0;
@@ -457,14 +457,17 @@ main {
   transform: translateY(4px);
   transition: opacity 0.15s ease, transform 0.15s ease;
   pointer-events: none;
-  z-index: 10;
- outline: 1px solid red;
+  z-index: 9999;
+
+  outline: 1px solid red; /* TEMP */
 }
 
-.contact-info .contact-link:hover::after {
+.contact-link:hover::after {
   opacity: 1;
   transform: translateY(0);
 }
+.contact-link:hover { outline: 2px solid lime !important; }
+
 
 /* Address*/
 .contact-info address { font-style: normal; }
