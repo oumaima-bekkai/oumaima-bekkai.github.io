@@ -1912,7 +1912,6 @@ textarea.form-input::-webkit-resizer { display: none; }
   justify-content: center;
 
   /* FORCE WHITE CARD by using !important  */
-  background-color: #ffffff !important;
   color: #1a1a1a !important;
 
   border-radius: 8px;
