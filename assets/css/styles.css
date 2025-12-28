@@ -1881,18 +1881,13 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
 .clients .clients-item .flip-card {
-  position: relative;
-  width: 100%;
-  height: 100%;
   cursor: pointer;
   perspective: 1000px;
 }
 
+/* Use grid so the image keeps determining the height */
 .clients .clients-item .flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: 72px;
+  display: grid;
   transform-style: preserve-3d;
   transition: transform 0.7s ease;
 }
@@ -1901,43 +1896,33 @@ textarea.form-input::-webkit-resizer { display: none; }
   transform: rotateY(180deg);
 }
 
+/* Stack front/back in the same grid cell (no absolute sizing) */
 .clients .clients-item .flip-card-front,
 .clients .clients-item .flip-card-back {
-  position: absolute;
-  inset: 0;
+  grid-area: 1 / 1;
   backface-visibility: hidden;
+}
 
+/* Match your original clients image behavior */
+.clients .clients-item .flip-card-front img {
+  width: 100%;
+  height: auto;
+  filter: grayscale(1);
+  transition: var(--transition-1);
+}
+
+.clients .clients-item .flip-card:hover .flip-card-front img {
+  filter: grayscale(0);
+}
+
+/* Back face */
+.clients .clients-item .flip-card-back {
+  transform: rotateY(180deg);
   display: flex;
   align-items: center;
   justify-content: center;
-
-  /* FORCE WHITE CARD by using !important  */
-  color: #ffffff !important;
-
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.clients .clients-item .flip-card-front img {
-  width: auto !important;
-  height: auto !important;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  padding: 0;
-  display: block;
-}
-
-.clients .clients-item .flip-card-back {
-  transform: rotateY(180deg);
   text-align: center;
   padding: 16px;
-}
-
-.clients .clients-item .flip-card-back p,
-.clients .clients-item .flip-card-back span,
-.clients .clients-item .flip-card-back div {
-  color: #ffffff !important;
 }
 
 .clients .clients-item .flip-card-text {
