@@ -1940,6 +1940,10 @@ textarea.form-input::-webkit-resizer { display: none; }
   font-weight: 500;
 }
 
+/* =========================================================
+   About: additional
+   ========================================================= */
+
 /* Sidebar title: allow wrapping */
 .sidebar .info-content .title {
   white-space: normal !important;
@@ -1947,6 +1951,9 @@ textarea.form-input::-webkit-resizer { display: none; }
   word-break: normal;
   max-width: 100%;
 }
-
+/* Allow flex children to shrink and wrap text */
+.sidebar .info-content {
+  min-width: 0;
+}
 
 
