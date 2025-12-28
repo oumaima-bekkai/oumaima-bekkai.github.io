@@ -343,9 +343,14 @@ main {
   background: var(--onyx);
   font-size: var(--fs-8);
   font-weight: var(--fw-300);
-  width: max-content;
+ /* allow wrapping */
+  width: auto;           
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: break-word;	
   padding: 3px 12px;
   border-radius: 8px;
+  text-align: center;	
 }
 
 .info_more-btn {
@@ -1943,16 +1948,6 @@ textarea.form-input::-webkit-resizer { display: none; }
 /* =========================================================
    About: additional
    ========================================================= */
-
-/* Fix sidebar title wrapping (override template's width: max-content) */
-.sidebar-info .info-content .title {
-  width: auto !important;          /* overrides width: max-content */
-  max-width: 100%;
-  display: inline-block;
-  white-space: normal !important;
-  overflow-wrap: anywhere;
-  word-break: normal;
-}
 
 
 
