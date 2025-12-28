@@ -1990,44 +1990,6 @@ textarea.form-input::-webkit-resizer { display: none; }
    About: additional
    ========================================================= */
 
-/* =========================================================
-   Email: single line + full text on hover (copyable)
-   ========================================================= */
-
-/* Email tooltip on hover (shows full text) */
-.contact-info .contact-link {
-  position: relative;
-  display: inline-block;
-  max-width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* Tooltip */
-.contact-info .contact-link::after {
-  content: attr(data-email);
-  position: absolute;
-  left: 0;
-  bottom: 130%;
-  background: var(--onyx);
-  color: var(--white-1);
-  padding: 6px 10px;
-  border-radius: 8px;
-  white-space: nowrap;
-  opacity: 0;
-  transform: translateY(4px);
-  transition: opacity 0.15s ease, transform 0.15s ease;
-  pointer-events: none;
-  z-index: 9999;
-}
-
-/* Show tooltip */
-.contact-info .contact-link:hover::after {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 
 
 
