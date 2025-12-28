@@ -458,6 +458,7 @@ main {
   transition: opacity 0.15s ease, transform 0.15s ease;
   pointer-events: none;
   z-index: 10;
+ outline: 1px solid red;
 }
 
 .contact-info .contact-link:hover::after {
