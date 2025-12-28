@@ -1879,13 +1879,21 @@ textarea.form-input::-webkit-resizer { display: none; }
    Flip cards – "They trusted me" (Recommendations placeholder)
    ========================================================= */
 
+.clients .clients-item a.client-link {
+  display: block;          /* match template anchor layout */
+}
+
+.clients .clients-item a.client-link .flip-card,
+.clients .clients-item a.client-link .flip-card-inner {
+  width: 100%;
+  height: 100%;
+}
 
 .clients .clients-item .flip-card {
   cursor: pointer;
   perspective: 1000px;
 }
 
-/* Use grid so the image keeps determining the height */
 .clients .clients-item .flip-card-inner {
   display: grid;
   transform-style: preserve-3d;
@@ -1896,26 +1904,25 @@ textarea.form-input::-webkit-resizer { display: none; }
   transform: rotateY(180deg);
 }
 
-/* Stack front/back in the same grid cell (no absolute sizing) */
 .clients .clients-item .flip-card-front,
 .clients .clients-item .flip-card-back {
   grid-area: 1 / 1;
   backface-visibility: hidden;
 }
 
-/* Match your original clients image behavior */
+/* EXACTLY match your template logo sizing */
 .clients .clients-item .flip-card-front img {
   width: 100%;
   height: auto;
   filter: grayscale(1);
   transition: var(--transition-1);
+  display: block;
 }
 
 .clients .clients-item .flip-card:hover .flip-card-front img {
   filter: grayscale(0);
 }
 
-/* Back face */
 .clients .clients-item .flip-card-back {
   transform: rotateY(180deg);
   display: flex;
@@ -1925,19 +1932,10 @@ textarea.form-input::-webkit-resizer { display: none; }
   padding: 16px;
 }
 
-.clients .clients-item .flip-card-text {
+.clients .clients-item .flip-card-back .flip-card-text {
+  color: #ffffff !important; /* your working fix */
   margin: 0;
   font-size: 0.85rem;
   line-height: 1.4;
   font-weight: 500;
-}
-
-/* Subtle hover lift */
-.clients .clients-item .flip-card:hover {
-  transform: translateY(-2px);
-}
-
-/* Test Hard override: force flipped text white */
-.clients .clients-item .flip-card-back .flip-card-text {
-  color: #ffffff !important;
 }
