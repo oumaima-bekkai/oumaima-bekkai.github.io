@@ -434,6 +434,11 @@ main {
   text-overflow: ellipsis;
   position: relative;
 }
+/* Allow tooltip to escape container */
+.contact-item,
+.contact-info {
+  overflow: visible;
+}
 
 /* Tooltip bubble */
 .contact-info .contact-link::after {
@@ -461,11 +466,7 @@ main {
   opacity: 1;
   transform: translateY(0);
 }
-/* Allow tooltip to escape container */
-.contact-item,
-.contact-info {
-  overflow: visible;
-}
+
 
 /* Address*/
 .contact-info address { font-style: normal; }
