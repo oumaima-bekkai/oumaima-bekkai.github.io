@@ -1879,7 +1879,8 @@ textarea.form-input::-webkit-resizer { display: none; }
    Flip cards – "They trusted me" (Recommendations placeholder)
    ========================================================= */
 
-.clients-item .flip-card {
+
+.clients .clients-item .flip-card {
   position: relative;
   width: 100%;
   height: 100%;
@@ -1887,21 +1888,21 @@ textarea.form-input::-webkit-resizer { display: none; }
   perspective: 1000px;
 }
 
-.clients-item .flip-card-inner {
+.clients .clients-item .flip-card-inner {
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 60px; /* ensures card has height */
+  min-height: 72px;
   transform-style: preserve-3d;
   transition: transform 0.7s ease;
 }
 
-.clients-item .flip-card.is-flipped .flip-card-inner {
+.clients .clients-item .flip-card.is-flipped .flip-card-inner {
   transform: rotateY(180deg);
 }
 
-.clients-item .flip-card-front,
-.clients-item .flip-card-back {
+.clients .clients-item .flip-card-front,
+.clients .clients-item .flip-card-back {
   position: absolute;
   inset: 0;
   backface-visibility: hidden;
@@ -1910,34 +1911,42 @@ textarea.form-input::-webkit-resizer { display: none; }
   align-items: center;
   justify-content: center;
 
-  background: #ffffff;              /* stays white */
+  /* FORCE WHITE CARD by using !important  */
+  background-color: #ffffff !important;
+  color: #1a1a1a !important;
+
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-.clients-item .flip-card-front img {
+.clients .clients-item .flip-card-front img {
   width: 100%;
   height: 100%;
-  object-fit: contain;              /* logos stay intact */
-  padding: 12px;
+  object-fit: contain;
+  padding: 14px;
   display: block;
 }
 
-.clients-item .flip-card-back {
+.clients .clients-item .flip-card-back {
   transform: rotateY(180deg);
   text-align: center;
   padding: 16px;
 }
 
-.clients-item .flip-card-text {
+.clients .clients-item .flip-card-back p,
+.clients .clients-item .flip-card-back span,
+.clients .clients-item .flip-card-back div {
+  color: #1a1a1a !important;
+}
+
+.clients .clients-item .flip-card-text {
   margin: 0;
   font-size: 0.85rem;
   line-height: 1.4;
-  color: #333;
   font-weight: 500;
 }
 
-/* Optional micro-interaction */
-.clients-item .flip-card:hover {
+/* Subtle hover lift */
+.clients .clients-item .flip-card:hover {
   transform: translateY(-2px);
 }
