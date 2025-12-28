@@ -422,10 +422,15 @@ main {
 .contact-info :is(.contact-link, time, address) {
   color: var(--white-2);
   font-size: var(--fs-7);
+white-space: nowrap;
+  overflow: hidden;
 }
+
+
+/*-----------------------------------*\
 /* ================================
    EMAIL: single line + hover reveal
-   ================================ */
+  
 .contact-info .contact-link {
   display: inline-block;
   max-width: 100%;
@@ -434,13 +439,11 @@ main {
   text-overflow: ellipsis;
   position: relative;
 }
-/* Allow tooltip to escape container */
 .contact-item,
 .contact-info {
   overflow: visible;
 }
 
-/* Tooltip bubble */
 .contact-info .contact-link::after {
   content: attr(data-email);
   position: absolute;
@@ -459,7 +462,6 @@ main {
   z-index: 9999;
 }
 
-/* Show tooltip when hovering the whole contact row */
 .contact-item:hover .contact-link::after,
 .contact-item:focus-within .contact-link::after,
 .contact-item:active .contact-link::after {
@@ -467,6 +469,7 @@ main {
   transform: translateY(0);
 }
 
+\*-----------------------------------*/
 
 
 /* Address*/
