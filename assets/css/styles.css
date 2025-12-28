@@ -808,7 +808,7 @@ white-space: nowrap;
 
 
 /*-----------------------------------*\
-  #RESUME
+  #RESUME/ Experience
 \*-----------------------------------*/
 
 .article-title { margin-bottom: 30px; }
@@ -914,7 +914,11 @@ white-space: nowrap;
   border-radius: inherit;
 }
 
-
+/* Skill category labels — match timeline date color */
+.skills-list .skills-item strong {
+  color: var(--vegas-gold);
+  font-weight: var(--fw-500);
+}
 
 
 
