@@ -1957,46 +1957,40 @@ textarea.form-input::-webkit-resizer { display: none; }
    Email: single line + full text on hover (copyable)
    ========================================================= */
 
-.contact-link {
+/* Email tooltip on hover (shows full text) */
+.contact-info .contact-link {
+  position: relative;
   display: inline-block;
   max-width: 100%;
-  white-space: nowrap;          /* keep on one line */
-  overflow: hidden;
-  text-overflow: ellipsis;      /* show ... */
-  position: relative;
-}
-
-/* Tooltip with full email */
-.contact-link::after {
-  content: attr(href);          /* uses mailto:... */
-  position: absolute;
-  left: 50%;
-  bottom: 130%;
-  transform: translateX(-50%);
-
-  background: #1e1e1e;
-  color: #ffffff;
-  padding: 6px 10px;
-  border-radius: 6px;
-
-  font-size: 0.8rem;
   white-space: nowrap;
-  pointer-events: none;
-
-  opacity: 0;
-  transition: opacity 0.2s ease;
-  z-index: 10;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* Remove "mailto:" from tooltip */
-.contact-link::after {
+/* Tooltip */
+.contact-info .contact-link::after {
   content: attr(data-email);
+  position: absolute;
+  left: 0;
+  bottom: 130%;
+  background: var(--onyx);
+  color: var(--white-1);
+  padding: 6px 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  pointer-events: none;
+  z-index: 9999;
 }
 
-/* Show tooltip on hover */
-.contact-link:hover::after {
+/* Show tooltip */
+.contact-info .contact-link:hover::after {
   opacity: 1;
+  transform: translateY(0);
 }
+
 
 
 
