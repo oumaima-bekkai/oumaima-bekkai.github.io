@@ -287,9 +287,6 @@ article.active {
 }
 
 
-
-
-
 /*-----------------------------------*\
   #MAIN
 \*-----------------------------------*/
@@ -299,9 +296,6 @@ main {
   margin-bottom: 75px;
   min-width: 259px;
 }
-
-
-
 
 
 /*-----------------------------------*\
@@ -429,45 +423,44 @@ main {
   color: var(--white-2);
   font-size: var(--fs-7);
 }
-/* Email link: single-line + ellipsis */
-.contact-link {
+/* ================================
+   EMAIL: single line + hover reveal
+   ================================ */
+.contact-info .contact-link {
   display: inline-block;
   max-width: 100%;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-
   position: relative;
 }
 
-/* Tooltip */
-.contact-link::after {
+/* Tooltip bubble */
+.contact-info .contact-link::after {
   content: attr(data-email);
   position: absolute;
   left: 0;
   bottom: 130%;
-
   background: var(--onyx);
   color: var(--white-1);
   padding: 6px 10px;
   border-radius: 8px;
-
   white-space: nowrap;
+
   opacity: 0;
   transform: translateY(4px);
   transition: opacity 0.15s ease, transform 0.15s ease;
   pointer-events: none;
   z-index: 9999;
-
-  outline: 1px solid red; /* TEMP */
 }
 
-.contact-link:hover::after {
+/* Show tooltip */
+.contact-info .contact-link:hover::after,
+.contact-info .contact-link:focus::after,
+.contact-info .contact-link:active::after {
   opacity: 1;
   transform: translateY(0);
 }
-.contact-link:hover { outline: 2px solid lime !important; }
-
 
 /* Address*/
 .contact-info address { font-style: normal; }
