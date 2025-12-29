@@ -229,33 +229,40 @@ document.querySelectorAll("[data-flip-card]").forEach(card => {
    Reuses the existing testimonials modal
    =============================== */
 
-// Grab project links/cards (works with most versions of this template)
-const projectLinks = document.querySelectorAll(".project-item a, [data-filter-item] a");
+document.addEventListener("DOMContentLoaded", () => {
+  const projectLinks = document.querySelectorAll(".project-item a");
 
-const openUnderConstruction = () => {
-  // Safety: only run if the modal exists in the DOM
-  if (!modalContainer || !overlay || !modalTitle || !modalText) return;
+  // Quick sanity check (optional): open DevTools console to see this
+  console.log("[Projects] links found:", projectLinks.length);
 
-  // Set generic content
-  modalTitle.innerHTML = "Under construction";
-  modalText.innerHTML = "This project page is currently being built. Check back soon.";
-
-  // Optional: clear image if present
-  if (modalImg) {
-    modalImg.src = "";
-    modalImg.alt = "";
+  // Guard: if modal elements are missing, do nothing
+  if (!modalContainer || !overlay || !modalTitle || !modalText) {
+    console.warn("[Projects] modal elements missing — cannot show popup.");
+    return;
   }
 
-  // Open modal (uses your existing function)
-  testimonialsModalFunc();
-};
+  const openUnderConstruction = () => {
+    // Set content
+    modalTitle.textContent = "Under construction!";
+    modalText.textContent = "This project page is currently being built. Check back soon.";
 
-// Intercept clicks on project cards
-projectLinks.forEach(link => {
-  link.addEventListener("click", (e) => {
-    // If you have some projects already live, you can exclude them by checking href here.
-    e.preventDefault();
-    openUnderConstruction();
+    // Hide/clear image if your modal expects one
+    if (modalImg) {
+      modalImg.removeAttribute("src");
+      modalImg.removeAttribute("alt");
+      modalImg.style.display = "none";
+    }
+
+    // OPEN (use add, not toggle, to avoid weird state)
+    modalContainer.classList.add("active");
+    overlay.classList.add("active");
+  };
+
+  projectLinks.forEach(link => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      openUnderConstruction();
+    });
   });
 });
 
