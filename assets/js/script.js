@@ -223,3 +223,39 @@ document.querySelectorAll("[data-flip-card]").forEach(card => {
     }
   });
 });
+
+/* ===============================
+   Projects: "Under construction" modal
+   Reuses the existing testimonials modal
+   =============================== */
+
+// Grab project links/cards (works with most versions of this template)
+const projectLinks = document.querySelectorAll(".project-item a, [data-filter-item] a");
+
+const openUnderConstruction = () => {
+  // Safety: only run if the modal exists in the DOM
+  if (!modalContainer || !overlay || !modalTitle || !modalText) return;
+
+  // Set generic content
+  modalTitle.innerHTML = "Under construction";
+  modalText.innerHTML = "This project page is currently being built. Check back soon.";
+
+  // Optional: clear image if present
+  if (modalImg) {
+    modalImg.src = "";
+    modalImg.alt = "";
+  }
+
+  // Open modal (uses your existing function)
+  testimonialsModalFunc();
+};
+
+// Intercept clicks on project cards
+projectLinks.forEach(link => {
+  link.addEventListener("click", (e) => {
+    // If you have some projects already live, you can exclude them by checking href here.
+    e.preventDefault();
+    openUnderConstruction();
+  });
+});
+
