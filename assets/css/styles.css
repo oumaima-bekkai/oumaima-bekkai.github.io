@@ -2057,5 +2057,40 @@ textarea.form-input::-webkit-resizer { display: none; }
   font-weight: var(--fw-500);
 }
 
+/* Force-hide UC modal unless active */
+#uc-overlay.uc-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.60);
+  display: none !important;         /* default hidden */
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+#uc-overlay.uc-overlay.active {
+  display: flex !important;         /* show only when active */
+}
+
+.uc-modal {
+  width: min(420px, 90vw);
+  background: var(--onyx);
+  padding: 22px 24px;
+  border-radius: 14px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,.45);
+}
+
+.uc-title { color: var(--white-1); margin: 0 0 10px; }
+.uc-text  { color: var(--light-gray); margin: 0 0 16px; font-size: var(--fs-7); }
+.uc-close {
+  border: 0;
+  border-radius: 8px;
+  padding: 8px 14px;
+  cursor: pointer;
+  background: var(--text-gradient-yellow);
+  color: var(--smoky-black);
+  font-weight: var(--fw-500);
+}
 
 
