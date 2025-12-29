@@ -25,14 +25,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
-   <!-- Under construction modal -->
-      <div class="modal-overlay" id="underConstructionModal" aria-hidden="true">
-        <div class="modal">
-          <h3>Under construction</h3>
-          <p>This project page is currently being built.</p>
-          <button class="modal-close" id="closeModalBtn">Close</button>
-        </div>
+  
+    <!-- Under construction modal -->
+    <div id="uc-overlay" class="uc-overlay" aria-hidden="true">
+      <div class="uc-modal" role="dialog" aria-modal="true" aria-labelledby="uc-title">
+        <h3 id="uc-title" class="uc-title">Under construction!</h3>
+        <p class="uc-text">This project page is currently being built. Check back soon.</p>
+        <button id="uc-close" class="uc-close" type="button">Close</button>
       </div>
+    </div>
+
       <!-- Under construction modal -->
 
   
