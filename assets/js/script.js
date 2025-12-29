@@ -230,39 +230,34 @@ document.querySelectorAll("[data-flip-card]").forEach(card => {
    =============================== */
 
 document.addEventListener("DOMContentLoaded", () => {
+  const ucOverlay = document.getElementById("uc-overlay");
+  const ucClose = document.getElementById("uc-close");
   const projectLinks = document.querySelectorAll(".project-item a");
 
-  // Quick sanity check (optional): open DevTools console to see this
-  console.log("[Projects] links found:", projectLinks.length);
+  console.log("[UC] overlay:", !!ucOverlay, "close:", !!ucClose, "projects:", projectLinks.length);
 
-  // Guard: if modal elements are missing, do nothing
-  if (!modalContainer || !overlay || !modalTitle || !modalText) {
-    console.warn("[Projects] modal elements missing — cannot show popup.");
-    return;
-  }
+  if (!ucOverlay || !ucClose) return;
 
-  const openUnderConstruction = () => {
-    // Set content
-    modalTitle.textContent = "Under construction!";
-    modalText.textContent = "This project page is currently being built. Check back soon.";
+  const openUC = () => ucOverlay.classList.add("active");
+  const closeUC = () => ucOverlay.classList.remove("active");
 
-    // Hide/clear image if your modal expects one
-    if (modalImg) {
-      modalImg.removeAttribute("src");
-      modalImg.removeAttribute("alt");
-      modalImg.style.display = "none";
-    }
-
-    // OPEN (use add, not toggle, to avoid weird state)
-    modalContainer.classList.add("active");
-    overlay.classList.add("active");
-  };
-
-  projectLinks.forEach(link => {
-    link.addEventListener("click", (e) => {
+  // open on project click
+  projectLinks.forEach(a => {
+    a.addEventListener("click", (e) => {
       e.preventDefault();
-      openUnderConstruction();
+      openUC();
     });
+  });
+
+  // close on button click
+  ucClose.addEventListener("click", (e) => {
+    e.preventDefault();
+    closeUC();
+  });
+
+  // close when clicking outside the modal box
+  ucOverlay.addEventListener("click", (e) => {
+    if (e.target === ucOverlay) closeUC();
   });
 });
 
