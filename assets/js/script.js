@@ -228,20 +228,38 @@ document.querySelectorAll("[data-flip-card]").forEach(card => {
    Projects: "Under construction" modal
    Reuses the existing testimonials modal
    =============================== */
-
 document.addEventListener("DOMContentLoaded", () => {
   const ucOverlay = document.getElementById("uc-overlay");
   const ucClose = document.getElementById("uc-close");
   const projectLinks = document.querySelectorAll(".project-item a");
 
-  console.log("[UC] overlay:", !!ucOverlay, "close:", !!ucClose, "projects:", projectLinks.length);
-
   if (!ucOverlay || !ucClose) return;
 
-  const openUC = () => ucOverlay.classList.add("active");
-  const closeUC = () => ucOverlay.classList.remove("active");
+  let lastFocusedEl = null;
 
-  // open on project click
+  const openUC = () => {
+    lastFocusedEl = document.activeElement;
+
+    ucOverlay.classList.add("active");
+    ucOverlay.setAttribute("aria-hidden", "false");
+
+    // Move focus into the modal (prevents aria-hidden warning)
+    ucClose.focus();
+  };
+
+  const closeUC = () => {
+    // Remove focus from button before hiding
+    ucClose.blur();
+
+    ucOverlay.classList.remove("active");
+    ucOverlay.setAttribute("aria-hidden", "true");
+
+    // Restore focus to the element that opened the modal
+    if (lastFocusedEl && typeof lastFocusedEl.focus === "function") {
+      lastFocusedEl.focus();
+    }
+  };
+
   projectLinks.forEach(a => {
     a.addEventListener("click", (e) => {
       e.preventDefault();
@@ -249,15 +267,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // close on button click
   ucClose.addEventListener("click", (e) => {
     e.preventDefault();
     closeUC();
   });
 
-  // close when clicking outside the modal box
   ucOverlay.addEventListener("click", (e) => {
     if (e.target === ucOverlay) closeUC();
+  });
+
+  // Escape key closes modal
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && ucOverlay.classList.contains("active")) {
+      closeUC();
+    }
   });
 });
 
