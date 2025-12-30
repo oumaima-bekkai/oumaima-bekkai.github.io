@@ -84,22 +84,25 @@ for (let i = 0; i < selectItems.length; i++) {
 }
 
 // filter variables
-const filterItems = document.querySelectorAll("[data-filter-item]");
-
 const filterFunc = function (selectedValue) {
 
-  for (let i = 0; i < filterItems.length; i++) {
+  // only filter items inside the currently active page (Projects OR Insights)
+  const activePage = document.querySelector("article.active");
+  if (!activePage) return;
+
+  const scopedItems = activePage.querySelectorAll("[data-filter-item]");
+
+  for (let i = 0; i < scopedItems.length; i++) {
 
     if (selectedValue === "all") {
-      filterItems[i].classList.add("active");
-    } else if (selectedValue === filterItems[i].dataset.category) {
-      filterItems[i].classList.add("active");
+      scopedItems[i].classList.add("active");
+    } else if (selectedValue === scopedItems[i].dataset.category) {
+      scopedItems[i].classList.add("active");
     } else {
-      filterItems[i].classList.remove("active");
+      scopedItems[i].classList.remove("active");
     }
 
   }
-
 }
 
 // add event in all filter button items for large screen
@@ -109,8 +112,14 @@ for (let i = 0; i < filterBtn.length; i++) {
 
   filterBtn[i].addEventListener("click", function () {
 
-    let selectedValue = this.innerText.toLowerCase();
-    selectValue.innerText = this.innerText;
+    // IMPORTANT: use data-category if present, fallback to text
+    let selectedValue = (this.dataset.category || this.innerText).toLowerCase();
+
+    // if you're using the dropdown selectValue element, keep this
+    if (typeof selectValue !== "undefined" && selectValue) {
+      selectValue.innerText = this.innerText;
+    }
+
     filterFunc(selectedValue);
 
     lastClickedBtn.classList.remove("active");
