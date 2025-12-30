@@ -231,7 +231,7 @@ document.querySelectorAll("[data-flip-card]").forEach(card => {
 document.addEventListener("DOMContentLoaded", () => {
   const ucOverlay = document.getElementById("uc-overlay");
   const ucClose = document.getElementById("uc-close");
-  const projectLinks = document.querySelectorAll(".project-item a");
+  const projectLinks = document.querySelectorAll(".project-item a, .blog-post-item a")
 
   if (!ucOverlay || !ucClose) return;
 
