@@ -1241,12 +1241,57 @@
         <header>
           <h2 class="h2 article-title">Insights</h2>
         </header>
+         <!--- #filter buttons-->
 
+      <div class="filter-list insights-filter-list">
+        <button class="filter-item active" data-filter-btn data-category="featured">Featured</button>
+        <button class="filter-item" data-filter-btn data-category="coming-soon">Coming soon</button>
+      </div>
+     <!--- #filter buttons-->
         <section class="blog-posts">
 
           <ul class="blog-posts-list">
 
-            <li class="blog-post-item">
+            <!-- Featured -->
+            <li class="blog-post-item active" data-filter-item data-category="featured">
+              <a href="#">
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/insight-placeholder.png" alt="Insight thumbnail">
+                </figure>
+          
+                <div class="blog-content">
+                  <h3 class="h3 blog-item-title">
+                    Data quality in enterprise systems
+                  </h3>
+          
+                  <p class="blog-text">
+                    Practical observations on why control rules fail and how to design them better.
+                  </p>
+                </div>
+              </a>
+            </li>
+          
+            <!-- Coming soon -->
+            <li class="blog-post-item active" data-filter-item data-category="coming-soon">
+              <a href="#">
+                <figure class="blog-banner-box">
+                  <img src="./assets/images/coming-soon.png" alt="Coming soon">
+                </figure>
+          
+                <div class="blog-content">
+                  <h3 class="h3 blog-item-title">
+                    More notes coming soon
+                  </h3>
+          
+                  <p class="blog-text">
+                    Short technical reflections and case notes in progress.
+                  </p>
+                </div>
+              </a>
+            </li>
+
+          <!-- Clean up -->
+            <li class="blog-post-item active" data-filter-item data-category="coming-soon">
               <a href="#">
 
                 <figure class="blog-banner-box">
@@ -1274,7 +1319,7 @@
               </a>
             </li>
 
-            <li class="blog-post-item">
+            <li class="blog-post-item active" data-filter-item data-category="coming-soon">
               <a href="#">
 
                 <figure class="blog-banner-box">
@@ -1302,7 +1347,7 @@
               </a>
             </li>
 
-            <li class="blog-post-item">
+            <li class="blog-post-item active" data-filter-item data-category="coming-soon">
               <a href="#">
 
                 <figure class="blog-banner-box">
@@ -1330,7 +1375,7 @@
               </a>
             </li>
 
-            <li class="blog-post-item">
+            <li class="blog-post-item active" data-filter-item data-category="coming-soon">
               <a href="#">
 
                 <figure class="blog-banner-box">
@@ -1358,61 +1403,7 @@
               </a>
             </li>
 
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-5.jpg" alt="The forgotten art of spacing" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">The forgotten art of spacing</h3>
-
-                  <p class="blog-text">
-                    Maxime placeat, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-6.jpg" alt="Design digest #79" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design digest #79</h3>
-
-                  <p class="blog-text">
-                    Optio cumque nihil impedit uo minus quod maxime placeat, velit esse cillum.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
+  
 
           </ul>
 
