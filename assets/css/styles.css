@@ -2079,6 +2079,8 @@ textarea.form-input::-webkit-resizer { display: none; }
   border-radius: 14px;
   text-align: center;
   box-shadow: 0 10px 30px rgba(0,0,0,.45);
+align-items: center;   /* centers button horizontally */
+  
 }
 
 .uc-title { color: var(--white-1); margin: 0 0 10px; }
